@@ -11,7 +11,7 @@ import './styles.css';
 
 export default class Home extends Component {
   render() {
-    const {className, ...props} = this.props;
+    const {className} = this.props;
     return (
       <div className={classnames('Home', className)}>
         <Header size='huge'>Bienvenido!</Header>
