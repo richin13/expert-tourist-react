@@ -14,7 +14,7 @@ export default class Home extends Component {
     const {className, ...props} = this.props;
     return (
       <div className={classnames('Home', className)}>
-        <Header size='huge'>Welcome!</Header>
+        <Header size='huge'>Bienvenido!</Header>
         <Divider/>
         <MainMap/>
       </div>

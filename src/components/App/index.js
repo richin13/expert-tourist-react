@@ -6,9 +6,6 @@ import {Header} from './Header'
 import routes from '../../routes';
 import 'semantic-ui-css/semantic.min.css';
 
-
-
-
 class App extends Component {
 
   render() {

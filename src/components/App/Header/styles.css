@@ -25,7 +25,11 @@
 }
 
 #map-container {
-    display: block;
+    display: flex;
     height: 100% !important;
     width: 100% !important;
+}
+
+#map-container div {
+    height: auto !important;
 }
