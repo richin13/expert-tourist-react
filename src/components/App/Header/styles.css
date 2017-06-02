@@ -1,0 +1,31 @@
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    height: 80px;
+}
+
+.App-header {
+    background-color: #222;
+    height: 180px;
+    padding: 20px;
+    color: white;
+    cursor: default;
+}
+
+.App #container {
+    height: auto;
+}
+
+.main-menu {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    background-color: #222222 !important;
+}
+
+#map-container {
+    display: block;
+    height: 100% !important;
+    width: 100% !important;
+}
