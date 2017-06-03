@@ -22,14 +22,5 @@
     margin: 0 !important;
     border-radius: 0 !important;
     background-color: #222222 !important;
-}
-
-#map-container {
-    display: flex;
-    height: 100% !important;
-    width: 100% !important;
-}
-
-#map-container div {
-    height: auto !important;
+    z-index: 5 !important;
 }

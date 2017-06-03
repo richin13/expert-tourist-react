@@ -2,19 +2,9 @@
  * Created by ricardo on 01/06/17.
  */
 import React, {Component} from "react";
+import {withGoogleMap, GoogleMap, DirectionsRenderer} from "react-google-maps";
+import {toast} from 'react-toastify';
 
-import {
-  withGoogleMap,
-  GoogleMap,
-  DirectionsRenderer,
-} from "react-google-maps";
-
-/*
- * This is the modify version of:
- * https://developers.google.com/maps/documentation/javascript/examples/event-arguments
- *
- * Add <script src="https://maps.googleapis.com/maps/api/js"></script> to your HTML to provide google.maps reference
- */
 const GettingStartedGoogleMap = withGoogleMap(props => (
   <GoogleMap
     ref={props.onMapLoad}
@@ -28,6 +18,12 @@ export class MainMap extends Component {
 
   constructor() {
     super();
+
+    this.determineOrigin();
+
+    // It doesn't matter the actual values of origin
+    // and destination since this will be properly
+    // updated when the user decide where he/she wants to go.
     this.state = {
       origin: new window.google.maps.LatLng(9.827529, -83.8689483),
       destination: new window.google.maps.LatLng(9.827529, -83.6514100),
@@ -35,28 +31,58 @@ export class MainMap extends Component {
     };
   }
 
-  componentDidMount() {
-    const DirectionsService = new window.google.maps.DirectionsService();
+  determineOrigin() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(({coords}) => {
+        const origin = new window.google.maps.LatLng(coords.latitude, coords.longitude);
+        const DirectionsService = new window.google.maps.DirectionsService();
 
-    DirectionsService.route({
-      origin: this.state.origin,
-      destination: this.state.destination,
-      travelMode: window.google.maps.TravelMode.DRIVING,
-    }, (result, status) => {
-      if (status === window.google.maps.DirectionsStatus.OK) {
-        this.setState({
-          directions: result,
-        });
-      } else {
-        console.error('error fetching directions ${result}');
+        // DirectionsService.route({
+        //   origin: origin,
+        //   destination: this.state.destination,
+        //   travelMode: window.google.maps.TravelMode.DRIVING,
+        // }, (result, status) => {
+        //   if (status === window.google.maps.DirectionsStatus.OK) {
+        //     this.setState({
+        //       directions: result,
+        //     });
+        //   } else {
+        //     console.error('error fetching directions ${result}');
+        //   }
+        // });
+        // TODO: call some prop here to update the origin's text box
+      })
+    }
+  }
+
+  componentDidMount() {
+    toast('Hello, world! You map is ready', {type: 'info'});
+    // const DirectionsService = new window.google.maps.DirectionsService();
+    //
+    // DirectionsService.route({
+    //   origin: this.state.origin,
+    //   destination: this.state.destination,
+    //   travelMode: window.google.maps.TravelMode.DRIVING,
+    // }, (result, status) => {
+    //   if (status === window.google.maps.DirectionsStatus.OK) {
+    //     this.setState({
+    //       directions: result,
+    //     });
+    //   } else {
+    //     console.error('error fetching directions ${result}');
+    //   }
+    // });
+    this.setState({
+      loader: {
+        active: false
       }
-    });
+    })
   }
 
   render() {
     // {lat: 9.827529, lng: -83.8689483}
     return (
-      <div style={{position: 'absolute', width: '100%', height: '100%'}}>
+      <div style={{position: 'absolute', width: '100%', height: '100%', z_index: 1}}>
         <GettingStartedGoogleMap
           containerElement={
             <div style={{

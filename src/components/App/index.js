@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
+import {ToastContainer} from 'react-toastify';
 import classnames from 'classnames';
 
 import {Header} from './Header'
 
 import routes from '../../routes';
 import 'semantic-ui-css/semantic.min.css';
+import 'react-toastify/dist/ReactToastify.min.css'
 
 class App extends Component {
 
@@ -13,57 +15,8 @@ class App extends Component {
     return (
       <div className={classnames('App', className)}>
         <Header/>
-        <br/>
-        <br/>
+        <ToastContainer hideProgressBar={true}/>
         {routes()}
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-
       </div>
     );
   }
