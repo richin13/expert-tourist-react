@@ -1,0 +1,38 @@
+.title {
+  font-weight: bold;
+}
+
+.padded {
+  margin-top: 10px;
+}
+
+.PlacesSearch__search-input,
+.PlacesSearch__search-input:focus,
+.PlacesSearch__search-input:active {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+  border: honeydew;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 2px;
+  outline: none;
+  margin-top: 10px;
+}
+
+.PlacesSearch__autocomplete-container {
+  border-bottom: honeydew;
+  border-left: honeydew;
+  border-right: honeydew;
+  border-top: 1px solid #e6e6e6;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border-radius: 0 0 2px 2px;
+}
+
+.PlacesSearch__suggestion-item {
+  padding: 4px;
+  text-align: left;
+}
+
+.PlacesSearch__suggestion-icon {
+  margin-right: 8px;
+}
